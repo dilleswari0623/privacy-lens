@@ -3,191 +3,276 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Privacy Lens</title>
+<title>Privacy Lens Analysis</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,"Noto Sans Telugu","Noto Sans Devanagari",sans-serif;
 }
 
 body{
-    background:#080808;
-    color:white;
+    background:#050816;
+    color:#fff;
 }
 
-/* NAVBAR */
+button,input,textarea,select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
 nav{
-    width:100%;
-    padding:18px 7%;
+    height:70px;
+    padding:0 7%;
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    border-bottom:1px solid #292929;
+    justify-content:space-between;
+    background:#060a18;
+    border-bottom:1px solid #202844;
     position:sticky;
     top:0;
-    background:#080808;
-    z-index:10;
+    z-index:20;
 }
 
 .logo{
-    font-size:25px;
+    font-size:23px;
     font-weight:bold;
 }
 
 .logo span{
-    color:#00e5ff;
+    color:#61e7ff;
 }
 
 .nav-links{
     display:flex;
-    gap:25px;
     align-items:center;
+    gap:25px;
 }
 
 .nav-links button{
     background:none;
-    border:none;
-    color:white;
-    cursor:pointer;
-    font-size:15px;
+    border:0;
+    color:#ddd;
 }
 
-.login-btn{
-    background:#00e5ff !important;
-    color:#000 !important;
-    padding:10px 18px;
+.nav-links button:hover{
+    color:#61e7ff;
+}
+
+.nav-login{
+    background:#674cff !important;
+    padding:10px 17px;
     border-radius:8px;
-    font-weight:bold;
+    color:white !important;
 }
 
-/* SECTIONS */
-section{
+.page{
     display:none;
 }
 
-section.active{
+.page.active{
     display:block;
 }
 
 /* HOME */
+
 .hero{
-    min-height:85vh;
+    min-height:calc(100vh - 70px);
+    padding:70px 7%;
     display:flex;
-    flex-direction:column;
-    justify-content:center;
+    justify-content:space-between;
     align-items:center;
-    text-align:center;
-    padding:40px 20px;
+    gap:50px;
+}
+
+.hero-text{
+    max-width:650px;
+}
+
+.tag{
+    color:#61e7ff;
+    letter-spacing:2px;
+    font-size:14px;
+    margin-bottom:15px;
 }
 
 .hero h1{
-    font-size:55px;
-    margin-bottom:18px;
+    font-size:62px;
+    line-height:1.05;
+    margin-bottom:20px;
 }
 
-.hero h1 span{
-    color:#00e5ff;
+.gradient{
+    background:linear-gradient(90deg,#5ee7ff,#8365ff);
+    -webkit-background-clip:text;
+    color:transparent;
 }
 
 .hero p{
-    max-width:700px;
-    color:#bbb;
-    font-size:18px;
-    line-height:1.7;
-}
-
-.primary-btn{
-    margin-top:28px;
-    padding:14px 25px;
-    border:none;
-    border-radius:9px;
-    background:#00e5ff;
-    color:#000;
-    font-weight:bold;
-    cursor:pointer;
-    font-size:16px;
-}
-
-/* ABOUT */
-.about{
-    max-width:850px;
-    margin:80px auto;
-    padding:20px;
-}
-
-.about h2{
-    font-size:35px;
-    margin-bottom:20px;
-}
-
-.about p{
-    color:#bbb;
+    color:#aeb7c9;
     line-height:1.8;
-    margin-bottom:20px;
+    font-size:18px;
 }
 
-.about-box{
-    padding:20px;
-    border:1px solid #333;
-    border-radius:12px;
-    margin-top:20px;
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-top:30px;
 }
 
-/* LOGIN */
-.login-container{
-    min-height:85vh;
+.primary{
+    background:#674cff;
+    color:white;
+    border:0;
+    padding:14px 25px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.secondary{
+    background:transparent;
+    color:white;
+    border:1px solid #485878;
+    padding:14px 25px;
+    border-radius:9px;
+}
+
+/* VISUAL */
+
+.visual{
+    width:420px;
+    height:420px;
     display:flex;
     justify-content:center;
     align-items:center;
+    position:relative;
 }
 
-.login-box{
-    width:380px;
-    max-width:90%;
-    background:#111;
-    padding:30px;
-    border-radius:15px;
-    border:1px solid #292929;
+.phone{
+    width:190px;
+    height:330px;
+    border:3px solid #725cff;
+    border-radius:30px;
+    background:#0b142a;
+    box-shadow:0 0 60px #40329b;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:70px;
 }
 
-.login-box h2{
+.circle{
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    background:#101d3a;
+    border:1px solid #3c5082;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:absolute;
+    font-size:25px;
+}
+
+.c1{top:40px;left:30px}
+.c2{top:10px;right:50px}
+.c3{bottom:50px;left:10px}
+.c4{bottom:20px;right:40px}
+
+/* ABOUT */
+
+.about{
+    max-width:1000px;
+    margin:auto;
+    padding:80px 25px;
+}
+
+.about h2{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.about-intro{
+    color:#aab4c7;
+    line-height:1.8;
+    font-size:18px;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-top:35px;
+}
+
+.feature{
+    padding:25px;
+    border-radius:14px;
+    background:#0c1224;
+    border:1px solid #253352;
+}
+
+.feature h3{
     margin-bottom:10px;
 }
 
-.login-box p{
-    color:#999;
+.feature p{
+    color:#9da8bc;
+    line-height:1.7;
+}
+
+/* AUTH */
+
+.auth{
+    min-height:calc(100vh - 70px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.auth-box{
+    width:390px;
+    max-width:90%;
+    padding:32px;
+    background:#0b1122;
+    border:1px solid #283653;
+    border-radius:16px;
+}
+
+.auth-box h2{
+    margin-bottom:10px;
+}
+
+.auth-box p{
+    color:#929db2;
     margin-bottom:25px;
 }
 
 .input{
     width:100%;
-    padding:13px;
+    padding:14px;
     margin-bottom:15px;
-    border:1px solid #333;
     border-radius:8px;
-    background:#080808;
+    border:1px solid #2b3855;
+    background:#060a15;
     color:white;
 }
 
-.login-box button{
+.full{
     width:100%;
-    padding:13px;
-    background:#00e5ff;
-    border:none;
-    border-radius:8px;
-    font-weight:bold;
-    cursor:pointer;
 }
 
 /* DASHBOARD */
+
 .dashboard{
-    max-width:1100px;
+    max-width:1150px;
     margin:auto;
-    padding:35px 20px;
+    padding:40px 20px;
 }
 
 .dashboard-header{
@@ -198,147 +283,200 @@ section.active{
     flex-wrap:wrap;
 }
 
-.dashboard h2{
-    font-size:32px;
+.dashboard-header h2{
+    font-size:34px;
 }
 
-.language-select{
-    background:#111;
+.dashboard-header p{
+    color:#929db2;
+    margin-top:7px;
+}
+
+.language{
+    background:#0c1224;
     color:white;
-    border:1px solid #444;
-    padding:10px;
+    padding:11px;
+    border:1px solid #344260;
     border-radius:8px;
 }
 
-.tabs{
+.menu{
     display:flex;
     gap:10px;
     flex-wrap:wrap;
-    margin:30px 0 20px;
+    margin:30px 0;
 }
 
-.tabs button{
+.menu button{
+    background:#0c1224;
+    color:white;
+    border:1px solid #293754;
+    border-radius:8px;
     padding:12px 18px;
-    background:#111;
-    color:white;
-    border:1px solid #333;
-    border-radius:8px;
-    cursor:pointer;
 }
 
-.tabs button.active{
-    background:#00e5ff;
-    color:#000;
+.menu button.active{
+    background:#674cff;
+    border-color:#674cff;
 }
 
-/* ANALYZER */
-.analyzer{
-    background:#111;
-    padding:25px;
+.tool{
+    display:none;
+    padding:28px;
+    background:#0b1122;
+    border:1px solid #243351;
     border-radius:15px;
-    border:1px solid #292929;
 }
 
-.analyzer h3{
-    margin-bottom:10px;
+.tool.active{
+    display:block;
 }
 
-.analyzer p{
-    color:#999;
-    margin-bottom:20px;
+.tool h3{
+    font-size:25px;
+    margin-bottom:8px;
 }
 
-textarea{
-    width:100%;
-    min-height:230px;
-    resize:vertical;
-    background:#080808;
-    color:white;
-    border:1px solid #333;
-    border-radius:10px;
-    padding:15px;
-    font-size:15px;
-    line-height:1.6;
+.description{
+    color:#929db2;
+    margin-bottom:25px;
 }
 
-.file-input{
-    margin:15px 0;
+/* ANALYSIS */
+
+.link-row{
+    display:flex;
+    gap:10px;
 }
 
-.url-box{
-    width:100%;
-    padding:14px;
-    background:#080808;
-    color:white;
-    border:1px solid #333;
-    border-radius:8px;
+.link-row .input{
+    margin:0;
+    flex:1;
 }
 
 .analyze-btn{
-    margin-top:18px;
-    padding:13px 25px;
-    background:#00e5ff;
-    border:none;
+    background:#674cff;
+    color:white;
+    border:0;
+    padding:13px 22px;
     border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
 }
 
-/* RESULT */
-.result{
-    margin-top:30px;
-    display:none;
-}
-
-.result-card{
-    background:#151515;
-    border:1px solid #333;
-    border-radius:14px;
-    padding:25px;
-}
-
-.recommendation{
-    padding:18px;
-    border-radius:10px;
-    margin:15px 0;
-    font-size:20px;
-    font-weight:bold;
-}
-
-.safe{
-    background:#10351d;
-    border:1px solid #2e9d50;
-}
-
-.caution{
-    background:#3a3210;
-    border:1px solid #d1b62b;
-}
-
-.not-safe{
-    background:#3a1515;
-    border:1px solid #d94a4a;
-}
-
-.summary{
-    color:#ccc;
-    line-height:1.7;
-    margin:15px 0;
-}
-
-.concerns{
+.policy-source{
     margin-top:20px;
 }
 
-.concerns li{
-    margin:10px 0;
-    color:#ddd;
+.policy-source textarea{
+    margin-top:10px;
+}
+
+.file-box{
+    margin-top:15px;
+    color:#aaa;
+}
+
+.results{
+    display:none;
+    margin-top:30px;
+}
+
+.overall{
+    padding:22px;
+    border-radius:13px;
+    background:#10182c;
+    border:1px solid #344361;
+}
+
+.overall h4{
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.overall p{
+    color:#b8c2d4;
+    line-height:1.7;
+}
+
+.risk-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.risk-card{
+    background:#080e1d;
+    border:1px solid #293754;
+    padding:18px;
+    border-radius:10px;
+}
+
+.risk-name{
+    color:#d1d7e3;
+    margin-bottom:12px;
+}
+
+.badge{
+    display:inline-block;
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.low{
+    background:#123d29;
+    color:#69e99b;
+}
+
+.medium{
+    background:#453a12;
+    color:#f2d45d;
+}
+
+.high{
+    background:#451b1d;
+    color:#ff7f84;
+}
+
+/* SIMPLE POLICY */
+
+textarea{
+    width:100%;
+    min-height:250px;
+    resize:vertical;
+    padding:16px;
+    background:#060a15;
+    color:white;
+    border:1px solid #293754;
+    border-radius:10px;
+    line-height:1.7;
+}
+
+.action-btn{
+    margin-top:15px;
+    padding:13px 22px;
+    border:0;
+    border-radius:8px;
+    background:#674cff;
+    color:white;
+}
+
+.simple-result{
+    display:none;
+    margin-top:25px;
+    padding:22px;
+    background:#080e1d;
+    border:1px solid #293754;
+    border-radius:12px;
+}
+
+.simple-result p{
+    color:#c3ccda;
+    line-height:1.8;
 }
 
 /* COMPARE */
-.compare{
-    display:none;
-}
 
 .compare-grid{
     display:grid;
@@ -347,46 +485,84 @@ textarea{
 }
 
 .compare-box{
-    background:#111;
     padding:20px;
-    border:1px solid #292929;
+    background:#080e1d;
+    border:1px solid #293754;
     border-radius:12px;
 }
 
-.compare-box input,
 .compare-box textarea{
-    margin-top:12px;
+    margin-top:10px;
+    min-height:230px;
 }
 
 .compare-result{
-    margin-top:25px;
-    padding:22px;
-    background:#111;
-    border:1px solid #292929;
-    border-radius:12px;
     display:none;
+    margin-top:25px;
+    padding:25px;
+    background:#10182c;
+    border:1px solid #354568;
+    border-radius:12px;
 }
 
-.footer{
+.compare-result p{
+    color:#bac4d5;
+    line-height:1.8;
+}
+
+footer{
     text-align:center;
-    color:#666;
+    color:#69738a;
     padding:30px;
-    border-top:1px solid #222;
+    border-top:1px solid #202944;
     margin-top:50px;
 }
 
-@media(max-width:700px){
+@media(max-width:800px){
 
-    .hero h1{
-        font-size:40px;
+    .hero{
+        flex-direction:column;
+        text-align:center;
     }
 
+    .hero h1{
+        font-size:45px;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .features,
     .compare-grid{
         grid-template-columns:1fr;
     }
 
+    .risk-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .visual{
+        transform:scale(.8);
+    }
+}
+
+@media(max-width:500px){
+
+    .risk-grid{
+        grid-template-columns:1fr;
+    }
+
     .nav-links{
-        gap:10px;
+        gap:8px;
+    }
+
+    .nav-links button:not(.nav-login){
+        display:none;
+    }
+
+    .link-row{
+        flex-direction:column;
     }
 }
 </style>
@@ -395,6 +571,7 @@ textarea{
 <body>
 
 <!-- NAVBAR -->
+
 <nav>
 
     <div class="logo">
@@ -402,243 +579,528 @@ textarea{
     </div>
 
     <div class="nav-links">
-        <button onclick="showSection('home')">Home</button>
-        <button onclick="showSection('about')">About</button>
-        <button class="login-btn" onclick="showSection('login')">
-            Sign In
+
+        <button onclick="showPage('home')" data-i18n="home">
+            Home
         </button>
+
+        <button onclick="showPage('about')" data-i18n="about">
+            About
+        </button>
+
+        <button onclick="showPage('login')" data-i18n="login">
+            Login
+        </button>
+
+        <button
+            class="nav-login"
+            onclick="showPage('signup')"
+            data-i18n="signup">
+            Sign Up
+        </button>
+
     </div>
 
 </nav>
 
 
 <!-- HOME -->
-<section id="home" class="active">
+
+<div id="home" class="page active">
 
     <div class="hero">
 
-        <h1>
-            Welcome to <span>Privacy Lens</span>
-        </h1>
+        <div class="hero-text">
 
-        <p>
-            Understand complicated privacy policies in simple language.
-            Analyze what data an app or website collects, how it may be used,
-            and what you should be careful about.
-        </p>
+            <div class="tag" data-i18n="tag">
+                PRIVACY POLICY ANALYSIS
+            </div>
 
-        <button class="primary-btn"
-                onclick="showSection('login')">
-            Get Started
-        </button>
+            <h1>
+                <span data-i18n="privacyLens">
+                    Privacy Lens
+                </span><br>
+
+                <span class="gradient"
+                      data-i18n="analysis">
+                    Analysis
+                </span>
+            </h1>
+
+            <p data-i18n="heroText">
+                Understand what your apps and websites know about you,
+                what data they collect, what permissions they use,
+                and what privacy risks you may need to consider.
+            </p>
+
+            <div class="buttons">
+
+                <button
+                    class="primary"
+                    onclick="showPage('login')"
+                    data-i18n="getStarted">
+                    Get Started →
+                </button>
+
+                <button
+                    class="secondary"
+                    onclick="showPage('about')"
+                    data-i18n="learnMore">
+                    Learn More
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="visual">
+
+            <div class="circle c1">📍</div>
+            <div class="circle c2">📷</div>
+            <div class="circle c3">🎤</div>
+            <div class="circle c4">👥</div>
+
+            <div class="phone">
+                🔐
+            </div>
+
+        </div>
 
     </div>
 
-</section>
+</div>
 
 
 <!-- ABOUT -->
-<section id="about">
+
+<div id="about" class="page">
 
     <div class="about">
 
-        <h2>About Privacy Lens</h2>
+        <h2>
+            <span data-i18n="aboutPrivacy">
+                About Privacy Lens
+            </span>
+        </h2>
 
-        <p>
-            Privacy policies are often long and difficult to understand.
-            Privacy Lens helps users understand important privacy information
-            in a simpler way.
+        <p
+            class="about-intro"
+            data-i18n="aboutText">
+            Privacy Lens helps users understand complicated privacy
+            policies and see how an app or website may handle their data.
         </p>
 
-        <div class="about-box">
-            <h3>🔍 Analyze</h3>
-            <p>
-                Paste a privacy policy, upload a PDF, or provide a website URL.
-            </p>
-        </div>
+        <div class="features">
 
-        <div class="about-box">
-            <h3>🌐 Simple Language</h3>
-            <p>
-                Understand important privacy information in English,
-                Telugu, or Hindi.
-            </p>
-        </div>
+            <div class="feature">
+                <h3 data-i18n="featureAnalysis">
+                    🔍 Privacy Analysis
+                </h3>
 
-        <div class="about-box">
-            <h3>⚖️ Compare</h3>
-            <p>
-                Compare two privacy policies using common privacy factors.
-            </p>
-        </div>
+                <p data-i18n="featureAnalysisText">
+                    Analyze important privacy factors such as permissions,
+                    tracking and data collection.
+                </p>
+            </div>
 
-        <div class="about-box">
-            <h3>🛡️ Recommendation</h3>
-            <p>
-                Get a simple recommendation such as
-                SAFE TO USE, USE WITH CAUTION, or NOT RECOMMENDED.
-            </p>
+            <div class="feature">
+                <h3 data-i18n="featureRisk">
+                    🛡️ Risk Detection
+                </h3>
+
+                <p data-i18n="featureRiskText">
+                    Show privacy factors as Low, Medium or High risk.
+                </p>
+            </div>
+
+            <div class="feature">
+                <h3 data-i18n="featureSimple">
+                    📖 Simple English
+                </h3>
+
+                <p data-i18n="featureSimpleText">
+                    Turn difficult privacy policy language into
+                    short and easy English.
+                </p>
+            </div>
+
+            <div class="feature">
+                <h3 data-i18n="featureCompare">
+                    ⚖️ Compare Apps
+                </h3>
+
+                <p data-i18n="featureCompareText">
+                    Compare two apps using the privacy information
+                    provided for them.
+                </p>
+            </div>
+
         </div>
 
     </div>
 
-</section>
+</div>
 
 
 <!-- LOGIN -->
-<section id="login">
 
-    <div class="login-container">
+<div id="login" class="page">
 
-        <div class="login-box">
+    <div class="auth">
 
-            <h2>Sign In</h2>
+        <div class="auth-box">
 
-            <p>
-                Sign in to use Privacy Lens.
+            <h2 data-i18n="welcome">
+                Welcome Back 👋
+            </h2>
+
+            <p data-i18n="loginText">
+                Login to use Privacy Lens.
             </p>
 
             <input
+                id="loginEmail"
                 class="input"
-                id="email"
                 type="email"
-                placeholder="Email"
-            >
+                placeholder="Email address"
+                data-placeholder="email">
 
             <input
+                id="loginPassword"
                 class="input"
-                id="password"
                 type="password"
                 placeholder="Password"
-            >
+                data-placeholder="password">
 
-            <button onclick="loginUser()">
-                Sign In
+            <button
+                class="primary full"
+                onclick="login()"
+                data-i18n="login">
+                Login
             </button>
 
         </div>
 
     </div>
 
-</section>
+</div>
+
+
+<!-- SIGNUP -->
+
+<div id="signup" class="page">
+
+    <div class="auth">
+
+        <div class="auth-box">
+
+            <h2 data-i18n="createAccount">
+                Create Account
+            </h2>
+
+            <p data-i18n="signupText">
+                Create your Privacy Lens account.
+            </p>
+
+            <input
+                id="signupName"
+                class="input"
+                placeholder="Full name"
+                data-placeholder="name">
+
+            <input
+                id="signupEmail"
+                class="input"
+                type="email"
+                placeholder="Email address"
+                data-placeholder="email">
+
+            <input
+                id="signupPassword"
+                class="input"
+                type="password"
+                placeholder="Password"
+                data-placeholder="password">
+
+            <button
+                class="primary full"
+                onclick="signup()"
+                data-i18n="signup">
+                Sign Up
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- DASHBOARD -->
-<section id="dashboard">
+
+<div id="dashboard" class="page">
 
 <div class="dashboard">
 
     <div class="dashboard-header">
 
         <div>
-            <h2>Privacy Lens 🔐</h2>
-            <p style="color:#999;margin-top:7px;">
-                Understand privacy policies easily.
+
+            <h2 data-i18n="dashboardTitle">
+                Privacy Lens 🔐
+            </h2>
+
+            <p data-i18n="dashboardText">
+                Analyze apps, understand privacy policies and compare apps.
             </p>
+
         </div>
 
+
         <select
-            class="language-select"
             id="language"
+            class="language"
             onchange="changeLanguage()">
 
-            <option value="english">English</option>
-            <option value="telugu">తెలుగు</option>
-            <option value="hindi">हिन्दी</option>
+            <option value="en">English</option>
+            <option value="te">తెలుగు</option>
+            <option value="hi">हिन्दी</option>
 
         </select>
 
     </div>
 
 
-    <!-- TABS -->
-    <div class="tabs">
+    <!-- MENU -->
+
+    <div class="menu">
 
         <button
-            id="analyzeTab"
             class="active"
-            onclick="openTab('analyze')">
-            Analyze Policy
+            onclick="openTool('analysis',this)"
+            data-i18n="analyzeApp">
+            🔍 Analyze App
         </button>
 
         <button
-            onclick="openTab('compare')">
-            Compare Apps
+            onclick="openTool('policy',this)"
+            data-i18n="simplePolicy">
+            📖 Simple English
+        </button>
+
+        <button
+            onclick="openTool('compare',this)"
+            data-i18n="compareApps">
+            ⚖️ Compare Apps
         </button>
 
     </div>
 
 
-    <!-- ANALYZE -->
-    <div id="analyze" class="analyzer">
+    <!-- ANALYSIS -->
 
-        <h3 id="analyzeTitle">
-            Analyze Privacy Policy
+    <div id="analysis" class="tool active">
+
+        <h3 data-i18n="analysisTitle">
+            App / Website Privacy Analysis
         </h3>
 
-        <p id="analyzeDescription">
-            Paste the privacy policy below, upload a PDF,
-            or enter a website URL.
+        <p
+            class="description"
+            data-i18n="analysisDescription">
+            Paste an app or website link and provide its privacy policy
+            text for analysis.
+        </p>
+
+
+        <div class="link-row">
+
+            <input
+                id="appLink"
+                class="input"
+                placeholder="Paste app / website link..."
+                data-placeholder="appLink">
+
+            <button
+                class="analyze-btn"
+                onclick="analyzeApp()"
+                data-i18n="analyze">
+                Analyze
+            </button>
+
+        </div>
+
+
+        <div class="policy-source">
+
+            <p
+                class="description"
+                data-i18n="policyInput">
+                Paste the privacy policy text below.
+            </p>
+
+            <textarea
+                id="analysisPolicy"
+                placeholder="Paste privacy policy here..."
+                data-placeholder="policy">
+            </textarea>
+
+            <input
+                id="pdfFile"
+                class="file-box"
+                type="file"
+                accept=".txt,.pdf">
+
+        </div>
+
+
+        <!-- RESULTS -->
+
+        <div id="analysisResults" class="results">
+
+            <div class="overall">
+
+                <h4 id="overallTitle">
+                    🟡 USE WITH CAUTION
+                </h4>
+
+                <p id="overallText"></p>
+
+            </div>
+
+
+            <div class="risk-grid">
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="location">
+                        📍 Location
+                    </div>
+                    <span id="locationRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="camera">
+                        📷 Camera
+                    </div>
+                    <span id="cameraRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="microphone">
+                        🎤 Microphone
+                    </div>
+                    <span id="microphoneRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="contacts">
+                        👥 Contacts
+                    </div>
+                    <span id="contactsRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="device">
+                        📱 Device Information
+                    </div>
+                    <span id="deviceRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="browsing">
+                        🌐 Browsing History
+                    </div>
+                    <span id="browsingRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="tracking">
+                        🍪 Cookies / Tracking
+                    </div>
+                    <span id="trackingRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="personal">
+                        👤 Personal Information
+                    </div>
+                    <span id="personalRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="thirdParty">
+                        🤝 Third-Party Sharing
+                    </div>
+                    <span id="thirdRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="retention">
+                        🗄️ Data Retention
+                    </div>
+                    <span id="retentionRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="deletion">
+                        🗑️ Data Deletion
+                    </div>
+                    <span id="deletionRisk" class="badge"></span>
+                </div>
+
+                <div class="risk-card">
+                    <div class="risk-name" data-i18n="security">
+                        🔒 Security
+                    </div>
+                    <span id="securityRisk" class="badge"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SIMPLE ENGLISH -->
+
+    <div id="policy" class="tool">
+
+        <h3 data-i18n="simpleTitle">
+            Privacy Policy → Simple English
+        </h3>
+
+        <p
+            class="description"
+            data-i18n="simpleDescription">
+            Paste a difficult privacy policy and understand it in
+            short, simple language.
         </p>
 
         <textarea
             id="policyText"
-            placeholder="Paste privacy policy text here...">
+            placeholder="Paste difficult privacy policy here..."
+            data-placeholder="difficultPolicy">
         </textarea>
 
-        <br>
-
-        <input
-            class="file-input"
-            type="file"
-            id="pdfFile"
-            accept=".txt,.pdf">
-
-        <input
-            class="url-box"
-            id="websiteUrl"
-            type="url"
-            placeholder="Or enter website URL">
-
-        <br>
-
         <button
-            class="analyze-btn"
-            onclick="analyzePolicy()">
-
-            Analyze Privacy Policy
-
+            class="action-btn"
+            onclick="simplifyPolicy()"
+            data-i18n="convert">
+            Convert to Simple English
         </button>
 
 
-        <!-- RESULT -->
-        <div id="result" class="result">
+        <div
+            id="simpleResult"
+            class="simple-result">
 
-            <div class="result-card">
+            <h3 data-i18n="simpleExplanation">
+                Simple Explanation
+            </h3>
 
-                <h3>Privacy Lens Result</h3>
-
-                <div
-                    id="recommendation"
-                    class="recommendation">
-                </div>
-
-                <h3>Simple Explanation</h3>
-
-                <p
-                    id="summary"
-                    class="summary">
-                </p>
-
-                <div class="concerns">
-
-                    <h3>Important Privacy Points</h3>
-
-                    <ul id="concernList"></ul>
-
-                </div>
-
-            </div>
+            <p id="simpleText"></p>
 
         </div>
 
@@ -646,22 +1108,39 @@ textarea{
 
 
     <!-- COMPARE -->
-    <div id="compare" class="compare">
+
+    <div id="compare" class="tool">
+
+        <h3 data-i18n="compareTitle">
+            Compare Two Apps
+        </h3>
+
+        <p
+            class="description"
+            data-i18n="compareDescription">
+            Compare two privacy policies and see which one has
+            fewer identified privacy concerns.
+        </p>
+
 
         <div class="compare-grid">
 
             <div class="compare-box">
 
-                <h3>App / Website 1</h3>
+                <h3 data-i18n="app1">
+                    App 1
+                </h3>
 
                 <input
-                    class="url-box"
                     id="app1Name"
-                    placeholder="App / Website name">
+                    class="input"
+                    placeholder="App name"
+                    data-placeholder="appName">
 
                 <textarea
                     id="app1Policy"
-                    placeholder="Paste privacy policy here...">
+                    placeholder="Paste App 1 privacy policy..."
+                    data-placeholder="app1Policy">
                 </textarea>
 
             </div>
@@ -669,28 +1148,32 @@ textarea{
 
             <div class="compare-box">
 
-                <h3>App / Website 2</h3>
+                <h3 data-i18n="app2">
+                    App 2
+                </h3>
 
                 <input
-                    class="url-box"
                     id="app2Name"
-                    placeholder="App / Website name">
+                    class="input"
+                    placeholder="App name"
+                    data-placeholder="appName">
 
                 <textarea
                     id="app2Policy"
-                    placeholder="Paste privacy policy here...">
+                    placeholder="Paste App 2 privacy policy..."
+                    data-placeholder="app2Policy">
                 </textarea>
 
             </div>
 
         </div>
 
+
         <button
-            class="analyze-btn"
-            onclick="comparePolicies()">
-
+            class="action-btn"
+            onclick="compareApps()"
+            data-i18n="compareButton">
             Compare Privacy
-
         </button>
 
 
@@ -703,411 +1186,927 @@ textarea{
 
 </div>
 
-</section>
-
-
-<div class="footer">
-    Privacy Lens © 2026
 </div>
+
+
+<footer data-i18n="footer">
+    Privacy Lens © 2026 | Understand Privacy. Make Informed Choices.
+</footer>
 
 
 <script>
 
-/* NAVIGATION */
+/* =========================
+   LANGUAGE DATA
+========================= */
 
-function showSection(sectionId){
+const translations = {
 
-    document.querySelectorAll("section")
-    .forEach(section=>{
-        section.classList.remove("active");
-    });
+en:{
 
-    document.getElementById(sectionId)
+home:"Home",
+about:"About",
+login:"Login",
+signup:"Sign Up",
+
+tag:"PRIVACY POLICY ANALYSIS",
+privacyLens:"Privacy Lens",
+analysis:"Analysis",
+
+heroText:
+"Understand what your apps and websites know about you, what data they collect, what permissions they use, and what privacy risks you may need to consider.",
+
+getStarted:"Get Started →",
+learnMore:"Learn More",
+
+aboutPrivacy:"About Privacy Lens",
+
+aboutText:
+"Privacy Lens helps users understand complicated privacy policies and see how an app or website may handle their data.",
+
+featureAnalysis:"🔍 Privacy Analysis",
+featureAnalysisText:
+"Analyze important privacy factors such as permissions, tracking and data collection.",
+
+featureRisk:"🛡️ Risk Detection",
+featureRiskText:
+"Show privacy factors as Low, Medium or High risk.",
+
+featureSimple:"📖 Simple English",
+featureSimpleText:
+"Turn difficult privacy policy language into short and easy English.",
+
+featureCompare:"⚖️ Compare Apps",
+featureCompareText:
+"Compare two apps using the privacy information provided for them.",
+
+welcome:"Welcome Back 👋",
+loginText:"Login to use Privacy Lens.",
+createAccount:"Create Account",
+signupText:"Create your Privacy Lens account.",
+
+dashboardTitle:"Privacy Lens 🔐",
+dashboardText:
+"Analyze apps, understand privacy policies and compare apps.",
+
+analyzeApp:"🔍 Analyze App",
+simplePolicy:"📖 Simple English",
+compareApps:"⚖️ Compare Apps",
+
+analysisTitle:"App / Website Privacy Analysis",
+analysisDescription:
+"Paste an app or website link and provide its privacy policy text for analysis.",
+
+analyze:"Analyze",
+policyInput:"Paste the privacy policy text below.",
+
+location:"📍 Location",
+camera:"📷 Camera",
+microphone:"🎤 Microphone",
+contacts:"👥 Contacts",
+device:"📱 Device Information",
+browsing:"🌐 Browsing History",
+tracking:"🍪 Cookies / Tracking",
+personal:"👤 Personal Information",
+thirdParty:"🤝 Third-Party Sharing",
+retention:"🗄️ Data Retention",
+deletion:"🗑️ Data Deletion",
+security:"🔒 Security",
+
+simpleTitle:"Privacy Policy → Simple English",
+simpleDescription:
+"Paste a difficult privacy policy and understand it in short, simple language.",
+
+convert:"Convert to Simple English",
+simpleExplanation:"Simple Explanation",
+
+compareTitle:"Compare Two Apps",
+compareDescription:
+"Compare two privacy policies and see which one has fewer identified privacy concerns.",
+
+app1:"App 1",
+app2:"App 2",
+compareButton:"Compare Privacy",
+
+footer:
+"Privacy Lens © 2026 | Understand Privacy. Make Informed Choices.",
+
+email:"Email address",
+password:"Password",
+name:"Full name",
+appLink:"Paste app / website link...",
+policy:"Paste privacy policy here...",
+difficultPolicy:"Paste difficult privacy policy here...",
+appName:"App name",
+app1Policy:"Paste App 1 privacy policy...",
+app2Policy:"Paste App 2 privacy policy..."
+
+},
+
+te:{
+
+home:"హోమ్",
+about:"మా గురించి",
+login:"లాగిన్",
+signup:"సైన్ అప్",
+
+tag:"గోప్యతా విధాన విశ్లేషణ",
+privacyLens:"ప్రైవసీ లెన్స్",
+analysis:"విశ్లేషణ",
+
+heroText:
+"మీ యాప్‌లు మరియు వెబ్‌సైట్‌లు మీ గురించి ఏ సమాచారం తెలుసుకుంటున్నాయి, ఏ డేటాను సేకరిస్తున్నాయి, ఏ అనుమతులు ఉపయోగిస్తున్నాయి మరియు ఎలాంటి గోప్యతా ప్రమాదాలు ఉన్నాయో సులభంగా తెలుసుకోండి.",
+
+getStarted:"ప్రారంభించండి →",
+learnMore:"మరింత తెలుసుకోండి",
+
+aboutPrivacy:"ప్రైవసీ లెన్స్ గురించి",
+
+aboutText:
+"కష్టమైన గోప్యతా విధానాలను అర్థం చేసుకోవడానికి మరియు యాప్ లేదా వెబ్‌సైట్ మీ డేటాను ఎలా ఉపయోగించవచ్చో తెలుసుకోవడానికి Privacy Lens సహాయపడుతుంది.",
+
+featureAnalysis:"🔍 గోప్యతా విశ్లేషణ",
+featureAnalysisText:
+"అనుమతులు, ట్రాకింగ్ మరియు డేటా సేకరణ వంటి ముఖ్యమైన గోప్యతా అంశాలను విశ్లేషిస్తుంది.",
+
+featureRisk:"🛡️ ప్రమాద గుర్తింపు",
+featureRiskText:
+"గోప్యతా అంశాలను తక్కువ, మధ్యస్థ లేదా ఎక్కువ ప్రమాదంగా చూపిస్తుంది.",
+
+featureSimple:"📖 సులభమైన ఇంగ్లీష్",
+featureSimpleText:
+"కష్టమైన గోప్యతా విధానాన్ని చిన్న మరియు సులభమైన ఇంగ్లీష్‌లో అర్థమయ్యేలా చేస్తుంది.",
+
+featureCompare:"⚖️ యాప్‌ల పోలిక",
+featureCompareText:
+"రెండు యాప్‌ల గోప్యతా సమాచారాన్ని పోల్చి చూపిస్తుంది.",
+
+welcome:"తిరిగి స్వాగతం 👋",
+loginText:"Privacy Lens ఉపయోగించడానికి లాగిన్ అవ్వండి.",
+createAccount:"ఖాతా సృష్టించండి",
+signupText:"మీ Privacy Lens ఖాతాను సృష్టించండి.",
+
+dashboardTitle:"ప్రైవసీ లెన్స్ 🔐",
+dashboardText:
+"యాప్‌లను విశ్లేషించండి, గోప్యతా విధానాలను అర్థం చేసుకోండి మరియు యాప్‌లను పోల్చండి.",
+
+analyzeApp:"🔍 యాప్ విశ్లేషణ",
+simplePolicy:"📖 సులభమైన ఇంగ్లీష్",
+compareApps:"⚖️ యాప్‌ల పోలిక",
+
+analysisTitle:"యాప్ / వెబ్‌సైట్ గోప్యతా విశ్లేషణ",
+analysisDescription:
+"యాప్ లేదా వెబ్‌సైట్ లింక్‌ను ఇవ్వండి మరియు దాని గోప్యతా విధానాన్ని విశ్లేషించండి.",
+
+analyze:"విశ్లేషించండి",
+policyInput:"కింద గోప్యతా విధానాన్ని పేస్ట్ చేయండి.",
+
+location:"📍 ప్రదేశ సమాచారం",
+camera:"📷 కెమెరా",
+microphone:"🎤 మైక్రోఫోన్",
+contacts:"👥 పరిచయాలు",
+device:"📱 పరికర సమాచారం",
+browsing:"🌐 బ్రౌజింగ్ చరిత్ర",
+tracking:"🍪 కుకీలు / ట్రాకింగ్",
+personal:"👤 వ్యక్తిగత సమాచారం",
+thirdParty:"🤝 ఇతర సంస్థలతో డేటా పంచుకోవడం",
+retention:"🗄️ డేటా నిల్వ కాలం",
+deletion:"🗑️ డేటా తొలగింపు",
+security:"🔒 భద్రత",
+
+simpleTitle:"గోప్యతా విధానం → సులభమైన ఇంగ్లీష్",
+simpleDescription:
+"కష్టమైన గోప్యతా విధానాన్ని పేస్ట్ చేసి చిన్న మరియు సులభమైన భాషలో అర్థం చేసుకోండి.",
+
+convert:"సులభమైన ఇంగ్లీష్‌లో మార్చండి",
+simpleExplanation:"సులభమైన వివరణ",
+
+compareTitle:"రెండు యాప్‌లను పోల్చండి",
+compareDescription:
+"రెండు గోప్యతా విధానాలను పోల్చి వాటిలో గుర్తించిన గోప్యతా ప్రమాదాలను చూడండి.",
+
+app1:"యాప్ 1",
+app2:"యాప్ 2",
+compareButton:"గోప్యతను పోల్చండి",
+
+footer:
+"Privacy Lens © 2026 | గోప్యతను అర్థం చేసుకోండి. సమాచారంతో నిర్ణయం తీసుకోండి.",
+
+email:"ఈమెయిల్ చిరునామా",
+password:"పాస్‌వర్డ్",
+name:"పూర్తి పేరు",
+appLink:"యాప్ / వెబ్‌సైట్ లింక్‌ను ఇక్కడ పేస్ట్ చేయండి...",
+policy:"గోప్యతా విధానాన్ని ఇక్కడ పేస్ట్ చేయండి...",
+difficultPolicy:"కష్టమైన గోప్యతా విధానాన్ని ఇక్కడ పేస్ట్ చేయండి...",
+appName:"యాప్ పేరు",
+app1Policy:"యాప్ 1 గోప్యతా విధానాన్ని పేస్ట్ చేయండి...",
+app2Policy:"యాప్ 2 గోప్యతా విధానాన్ని పేస్ట్ చేయండి..."
+
+},
+
+hi:{
+
+home:"होम",
+about:"हमारे बारे में",
+login:"लॉगिन",
+signup:"साइन अप",
+
+tag:"प्राइवेसी पॉलिसी विश्लेषण",
+privacyLens:"प्राइवेसी लेंस",
+analysis:"विश्लेषण",
+
+heroText:
+"जानें कि आपके ऐप और वेबसाइट आपके बारे में कौन-सी जानकारी लेते हैं, कौन-सा डेटा इकट्ठा करते हैं, कौन-सी permissions इस्तेमाल करते हैं और कौन-से privacy risks हो सकते हैं।",
+
+getStarted:"शुरू करें →",
+learnMore:"और जानें",
+
+aboutPrivacy:"प्राइवेसी लेंस के बारे में",
+
+aboutText:
+"Privacy Lens कठिन privacy policies को समझने और यह जानने में मदद करता है कि कोई app या website आपके data का उपयोग कैसे कर सकती है।",
+
+featureAnalysis:"🔍 प्राइवेसी विश्लेषण",
+featureAnalysisText:
+"Permissions, tracking और data collection जैसे महत्वपूर्ण privacy factors को analyze करता है।",
+
+featureRisk:"🛡️ जोखिम पहचान",
+featureRiskText:
+"Privacy factors को Low, Medium या High risk के रूप में दिखाता है।",
+
+featureSimple:"📖 आसान English",
+featureSimpleText:
+"कठिन privacy policy को छोटी और आसान English में समझने में मदद करता है।",
+
+featureCompare:"⚖️ ऐप तुलना",
+featureCompareText:
+"दो apps की उपलब्ध privacy information की तुलना करता है।",
+
+welcome:"वापस स्वागत है 👋",
+loginText:"Privacy Lens इस्तेमाल करने के लिए लॉगिन करें।",
+createAccount:"खाता बनाएं",
+signupText:"अपना Privacy Lens account बनाएं।",
+
+dashboardTitle:"प्राइवेसी लेंस 🔐",
+dashboardText:
+"Apps को analyze करें, privacy policies समझें और apps की तुलना करें।",
+
+analyzeApp:"🔍 ऐप विश्लेषण",
+simplePolicy:"📖 आसान English",
+compareApps:"⚖️ ऐप तुलना",
+
+analysisTitle:"ऐप / वेबसाइट प्राइवेसी विश्लेषण",
+analysisDescription:
+"ऐप या वेबसाइट का link दें और उसकी privacy policy को analyze करें।",
+
+analyze:"विश्लेषण करें",
+policyInput:"नीचे privacy policy paste करें।",
+
+location:"📍 स्थान की जानकारी",
+camera:"📷 कैमरा",
+microphone:"🎤 माइक्रोफ़ोन",
+contacts:"👥 संपर्क",
+device:"📱 डिवाइस की जानकारी",
+browsing:"🌐 ब्राउज़िंग इतिहास",
+tracking:"🍪 कुकीज़ / ट्रैकिंग",
+personal:"👤 व्यक्तिगत जानकारी",
+thirdParty:"🤝 अन्य कंपनियों के साथ डेटा साझा करना",
+retention:"🗄️ डेटा रखने की अवधि",
+deletion:"🗑️ डेटा हटाना",
+security:"🔒 सुरक्षा",
+
+simpleTitle:"Privacy Policy → आसान English",
+simpleDescription:
+"कठिन privacy policy को paste करें और उसे छोटी और आसान भाषा में समझें।",
+
+convert:"आसान English में बदलें",
+simpleExplanation:"सरल विवरण",
+
+compareTitle:"दो Apps की तुलना करें",
+compareDescription:
+"दो privacy policies की तुलना करके उनमें पाए गए privacy risks देखें।",
+
+app1:"ऐप 1",
+app2:"ऐप 2",
+compareButton:"प्राइवेसी की तुलना करें",
+
+footer:
+"Privacy Lens © 2026 | Privacy समझें और informed choice करें।",
+
+email:"ईमेल पता",
+password:"पासवर्ड",
+name:"पूरा नाम",
+appLink:"ऐप / वेबसाइट link यहाँ paste करें...",
+policy:"Privacy policy यहाँ paste करें...",
+difficultPolicy:"कठिन privacy policy यहाँ paste करें...",
+appName:"ऐप का नाम",
+app1Policy:"ऐप 1 की privacy policy paste करें...",
+app2Policy:"ऐप 2 की privacy policy paste करें..."
+
+}
+
+};
+
+
+/* =========================
+   PAGE NAVIGATION
+========================= */
+
+function showPage(page){
+
+    document.querySelectorAll(".page")
+    .forEach(p=>p.classList.remove("active"));
+
+    document.getElementById(page)
     .classList.add("active");
 
     window.scrollTo(0,0);
 }
 
 
-/* LOGIN */
+/* =========================
+   LOGIN
+========================= */
 
-function loginUser(){
+function login(){
 
     const email =
-        document.getElementById("email").value.trim();
+        document.getElementById("loginEmail").value.trim();
 
     const password =
-        document.getElementById("password").value.trim();
+        document.getElementById("loginPassword").value.trim();
 
-    if(email === "" || password === ""){
+    if(!email || !password){
 
-        alert("Please enter email and password.");
+        alert(
+            currentLang==="te"
+            ? "దయచేసి ఈమెయిల్ మరియు పాస్‌వర్డ్ ఇవ్వండి."
+            : currentLang==="hi"
+            ? "कृपया ईमेल और पासवर्ड दर्ज करें।"
+            : "Please enter email and password."
+        );
 
         return;
     }
 
-    alert("Sign in successful!");
+    alert(
+        currentLang==="te"
+        ? "లాగిన్ విజయవంతమైంది!"
+        : currentLang==="hi"
+        ? "लॉगिन सफल हुआ!"
+        : "Login successful!"
+    );
 
-    showSection("dashboard");
+    showPage("dashboard");
 }
 
 
-/* TABS */
+/* SIGNUP */
 
-function openTab(tab){
+function signup(){
 
-    document.getElementById("analyze").style.display =
-        tab === "analyze" ? "block" : "none";
+    const name =
+        document.getElementById("signupName").value.trim();
 
-    document.getElementById("compare").style.display =
-        tab === "compare" ? "block" : "none";
+    const email =
+        document.getElementById("signupEmail").value.trim();
 
-    document.querySelectorAll(".tabs button")
-    .forEach(btn=>{
-        btn.classList.remove("active");
-    });
+    const password =
+        document.getElementById("signupPassword").value.trim();
 
-    event.target.classList.add("active");
+    if(!name || !email || !password){
+
+        alert(
+            currentLang==="te"
+            ? "దయచేసి అన్ని వివరాలు ఇవ్వండి."
+            : currentLang==="hi"
+            ? "कृपया सभी जानकारी भरें।"
+            : "Please fill all fields."
+        );
+
+        return;
+    }
+
+    alert(
+        currentLang==="te"
+        ? "ఖాతా విజయవంతంగా సృష్టించబడింది!"
+        : currentLang==="hi"
+        ? "खाता सफलतापूर्वक बनाया गया!"
+        : "Account created successfully!"
+    );
+
+    showPage("dashboard");
 }
 
 
-/* LANGUAGE */
+/* =========================
+   DASHBOARD MENU
+========================= */
+
+function openTool(tool,button){
+
+    document.querySelectorAll(".tool")
+    .forEach(t=>t.classList.remove("active"));
+
+    document.getElementById(tool)
+    .classList.add("active");
+
+    document.querySelectorAll(".menu button")
+    .forEach(b=>b.classList.remove("active"));
+
+    button.classList.add("active");
+}
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+let currentLang="en";
+
 
 function changeLanguage(){
 
-    const lang =
+    currentLang =
         document.getElementById("language").value;
 
-    const title =
-        document.getElementById("analyzeTitle");
+    const data =
+        translations[currentLang];
 
-    const description =
-        document.getElementById("analyzeDescription");
+    document.querySelectorAll("[data-i18n]")
+    .forEach(element=>{
 
-    const text =
-        document.getElementById("policyText");
+        const key =
+            element.getAttribute("data-i18n");
 
-    const url =
-        document.getElementById("websiteUrl");
+        if(data[key]){
+            element.innerText=data[key];
+        }
 
-    if(lang === "telugu"){
+    });
 
-        title.innerText =
-            "Privacy Policy విశ్లేషణ";
 
-        description.innerText =
-            "Privacy policy ని paste చేయండి, PDF upload చేయండి లేదా website URL ఇవ్వండి.";
+    document.querySelectorAll("[data-placeholder]")
+    .forEach(element=>{
 
-        text.placeholder =
-            "Privacy policy text ఇక్కడ paste చేయండి...";
+        const key =
+            element.getAttribute("data-placeholder");
 
-        url.placeholder =
-            "లేదా website URL ఇక్కడ ఇవ్వండి";
+        if(data[key]){
+            element.placeholder=data[key];
+        }
 
-    }
+    });
 
-    else if(lang === "hindi"){
-
-        title.innerText =
-            "Privacy Policy विश्लेषण";
-
-        description.innerText =
-            "Privacy policy paste करें, PDF upload करें या website URL दें।";
-
-        text.placeholder =
-            "Privacy policy text यहाँ paste करें...";
-
-        url.placeholder =
-            "या website URL यहाँ डालें";
-
-    }
-
-    else{
-
-        title.innerText =
-            "Analyze Privacy Policy";
-
-        description.innerText =
-            "Paste the privacy policy below, upload a PDF, or enter a website URL.";
-
-        text.placeholder =
-            "Paste privacy policy text here...";
-
-        url.placeholder =
-            "Or enter website URL";
-    }
+    document.documentElement.lang =
+        currentLang==="te"
+        ? "te"
+        : currentLang==="hi"
+        ? "hi"
+        : "en";
 }
 
 
-/* ANALYZE POLICY */
+/* =========================
+   POLICY RISK ANALYSIS
+========================= */
 
-function analyzePolicy(){
+function contains(text,words){
 
-    const text =
-        document.getElementById("policyText")
-        .value
-        .toLowerCase();
+    return words.some(word =>
+        text.includes(word)
+    );
+}
 
-    if(text.trim() === ""){
+
+function calculateRisk(text,keywords){
+
+    if(contains(text,keywords.high)){
+        return "HIGH";
+    }
+
+    if(contains(text,keywords.medium)){
+        return "MEDIUM";
+    }
+
+    return "LOW";
+}
+
+
+const riskRules={
+
+location:{
+    high:["precise location","gps","real-time location"],
+    medium:["location","geolocation"]
+},
+
+camera:{
+    high:["camera access","camera permission"],
+    medium:["camera","photos"]
+},
+
+microphone:{
+    high:["microphone access","microphone permission"],
+    medium:["microphone","audio"]
+},
+
+contacts:{
+    high:["contacts access","contact list"],
+    medium:["contacts","address book"]
+},
+
+device:{
+    high:["device identifiers","advertising id","unique identifier"],
+    medium:["device information","device data","ip address"]
+},
+
+browsing:{
+    high:["browsing history","web history","browsing activity"],
+    medium:["browsing","web activity","search history"]
+},
+
+tracking:{
+    high:["cross-site tracking","tracking technologies","tracking"],
+    medium:["cookies","pixels","analytics"]
+},
+
+personal:{
+    high:["personal data","sensitive personal information"],
+    medium:["personal information","name","email","phone number"]
+},
+
+thirdParty:{
+    high:["sell your information","sell personal data"],
+    medium:["third party","third-party","business partners","service providers"]
+},
+
+retention:{
+    high:["retain indefinitely","indefinitely"],
+    medium:["retain","retention","stored"]
+},
+
+deletion:{
+    high:["cannot delete","deletion not available"],
+    medium:["delete your data","request deletion","delete information"]
+},
+
+security:{
+    high:["security incidents","data breach"],
+    medium:["security measures","encryption","protect information"]
+}
+
+};
+
+
+function setRisk(id,value){
+
+    const element =
+        document.getElementById(id);
+
+    element.innerText =
+        value==="LOW"
+        ? translations[currentLang].low || (
+            currentLang==="te" ? "తక్కువ ప్రమాదం" :
+            currentLang==="hi" ? "कम जोखिम" :
+            "LOW RISK"
+        )
+        : value==="MEDIUM"
+        ? currentLang==="te" ? "మధ్యస్థ ప్రమాదం" :
+          currentLang==="hi" ? "मध्यम जोखिम" :
+          "MEDIUM RISK"
+        : currentLang==="te" ? "ఎక్కువ ప్రమాదం" :
+          currentLang==="hi" ? "उच्च जोखिम" :
+          "HIGH RISK";
+
+    element.className="badge";
+
+    if(value==="LOW")
+        element.classList.add("low");
+
+    if(value==="MEDIUM")
+        element.classList.add("medium");
+
+    if(value==="HIGH")
+        element.classList.add("high");
+}
+
+
+function analyzeApp(){
+
+    const link =
+        document.getElementById("appLink")
+        .value.trim();
+
+    const policy =
+        document.getElementById("analysisPolicy")
+        .value.toLowerCase();
+
+    if(!link){
 
         alert(
-            "Please paste a privacy policy first."
+            currentLang==="te"
+            ? "దయచేసి యాప్ లేదా వెబ్‌సైట్ లింక్ ఇవ్వండి."
+            : currentLang==="hi"
+            ? "कृपया ऐप या वेबसाइट का link दें।"
+            : "Please enter an app or website link."
         );
 
         return;
     }
 
-    let concerns = [];
+    if(!policy){
 
-    /* DATA COLLECTION */
-
-    if(
-        text.includes("personal data") ||
-        text.includes("personal information") ||
-        text.includes("name") ||
-        text.includes("email")
-    ){
-
-        concerns.push(
-            "The service may collect personal information."
+        alert(
+            currentLang==="te"
+            ? "దయచేసి privacy policy text ను paste చేయండి."
+            : currentLang==="hi"
+            ? "कृपया privacy policy text paste करें।"
+            : "Please paste the privacy policy text."
         );
+
+        return;
     }
 
 
-    /* LOCATION */
+    const results={};
 
-    if(
-        text.includes("location") ||
-        text.includes("gps")
-    ){
+    Object.keys(riskRules)
+    .forEach(key=>{
 
-        concerns.push(
-            "Location information may be collected."
-        );
-    }
+        results[key]=
+            calculateRisk(
+                policy,
+                riskRules[key]
+            );
 
-
-    /* CAMERA */
-
-    if(
-        text.includes("camera") ||
-        text.includes("photos")
-    ){
-
-        concerns.push(
-            "Camera or photo-related information may be accessed."
-        );
-    }
+    });
 
 
-    /* MICROPHONE */
-
-    if(
-        text.includes("microphone") ||
-        text.includes("audio")
-    ){
-
-        concerns.push(
-            "Microphone or audio information may be collected."
-        );
-    }
-
-
-    /* THIRD PARTY */
-
-    if(
-        text.includes("third party") ||
-        text.includes("third-party") ||
-        text.includes("partners")
-    ){
-
-        concerns.push(
-            "Some information may be shared with third parties or partners."
-        );
-    }
+    setRisk("locationRisk",results.location);
+    setRisk("cameraRisk",results.camera);
+    setRisk("microphoneRisk",results.microphone);
+    setRisk("contactsRisk",results.contacts);
+    setRisk("deviceRisk",results.device);
+    setRisk("browsingRisk",results.browsing);
+    setRisk("trackingRisk",results.tracking);
+    setRisk("personalRisk",results.personal);
+    setRisk("thirdRisk",results.thirdParty);
+    setRisk("retentionRisk",results.retention);
+    setRisk("deletionRisk",results.deletion);
+    setRisk("securityRisk",results.security);
 
 
-    /* ADVERTISING */
+    const values=
+        Object.values(results);
 
-    if(
-        text.includes("advertising") ||
-        text.includes("advertisement") ||
-        text.includes("ads")
-    ){
+    const high=
+        values.filter(x=>x==="HIGH").length;
 
-        concerns.push(
-            "Information may be used for advertising or personalized ads."
-        );
-    }
+    const medium=
+        values.filter(x=>x==="MEDIUM").length;
 
 
-    /* TRACKING */
-
-    if(
-        text.includes("tracking") ||
-        text.includes("cookies")
-    ){
-
-        concerns.push(
-            "Cookies or tracking technologies may be used."
-        );
-    }
+    let title="";
+    let description="";
 
 
-    /* RETENTION */
+    if(high>=5){
 
-    if(
-        text.includes("retain") ||
-        text.includes("retention") ||
-        text.includes("stored")
-    ){
+        title =
+            currentLang==="te"
+            ? "🔴 సిఫార్సు చేయబడదు"
+            : currentLang==="hi"
+            ? "🔴 अनुशंसित नहीं"
+            : "🔴 NOT RECOMMENDED";
 
-        concerns.push(
-            "Some personal information may be stored or retained."
-        );
-    }
-
-
-    /* RECOMMENDATION */
-
-    let recommendation =
-        document.getElementById("recommendation");
-
-    recommendation.className =
-        "recommendation";
-
-    let summary = "";
-
-    const lang =
-        document.getElementById("language").value;
-
-
-    if(concerns.length <= 2){
-
-        recommendation.innerText =
-            lang === "telugu"
-            ? "🟢 SAFE TO USE"
-            : lang === "hindi"
-            ? "🟢 उपयोग के लिए सामान्यतः सुरक्षित"
-            : "🟢 SAFE TO USE";
-
-        recommendation.classList.add("safe");
-
-        summary =
-            lang === "telugu"
-            ? "Privacy policy లో కొన్ని ముఖ్యమైన concerns మాత్రమే కనిపించాయి. అయినప్పటికీ unnecessary personal information share చేయకుండా ఉండండి."
-            : lang === "hindi"
-            ? "Privacy policy में कुछ ही महत्वपूर्ण concerns मिले। फिर भी unnecessary personal information share करने से बचें।"
-            : "Only a few important privacy concerns were found. Still, avoid sharing unnecessary personal information.";
+        description =
+            currentLang==="te"
+            ? "ఈ యాప్‌లో అనేక ముఖ్యమైన privacy risks కనిపించాయి. Sensitive personal information share చేయడంలో చాలా జాగ్రత్తగా ఉండండి."
+            : currentLang==="hi"
+            ? "इस ऐप में कई महत्वपूर्ण privacy risks मिले हैं। Sensitive personal information share करते समय बहुत सावधान रहें।"
+            : "Several important privacy risks were identified. Be very careful before sharing sensitive personal information.";
 
     }
 
-    else if(concerns.length <= 5){
+    else if(high>=2 || medium>=4){
 
-        recommendation.innerText =
-            lang === "telugu"
-            ? "🟡 USE WITH CAUTION"
-            : lang === "hindi"
+        title =
+            currentLang==="te"
+            ? "🟡 జాగ్రత్తగా ఉపయోగించండి"
+            : currentLang==="hi"
             ? "🟡 सावधानी से उपयोग करें"
             : "🟡 USE WITH CAUTION";
 
-        recommendation.classList.add("caution");
-
-        summary =
-            lang === "telugu"
-            ? "ఈ service కొంత personal information collect లేదా share చేయవచ్చు. Personal information share చేసేటప్పుడు జాగ్రత్తగా ఉండండి."
-            : lang === "hindi"
-            ? "यह service कुछ personal information collect या share कर सकती है। Personal information share करते समय सावधान रहें।"
-            : "This service may collect or share some personal information. Be careful about the personal information you share.";
+        description =
+            currentLang==="te"
+            ? "ఈ యాప్ కొంత personal information మరియు ఇతర data తీసుకోవచ్చు. మీరు share చేసే data విషయంలో జాగ్రత్తగా ఉండండి."
+            : currentLang==="hi"
+            ? "यह ऐप कुछ personal information और अन्य data ले सकता है। आप जो data share करते हैं उसके बारे में सावधान रहें।"
+            : "This app may collect some personal information and other data. Be careful about the information you share.";
 
     }
 
     else{
 
-        recommendation.innerText =
-            lang === "telugu"
-            ? "🔴 NOT RECOMMENDED"
-            : lang === "hindi"
-            ? "🔴 अनुशंसित नहीं"
-            : "🔴 NOT RECOMMENDED";
+        title =
+            currentLang==="te"
+            ? "🟢 ఉపయోగించవచ్చు"
+            : currentLang==="hi"
+            ? "🟢 उपयोग किया जा सकता है"
+            : "🟢 SAFE TO USE";
 
-        recommendation.classList.add("not-safe");
+        description =
+            currentLang==="te"
+            ? "ఈ policy లో గుర్తించిన privacy risks తక్కువగా ఉన్నాయి. అయినప్పటికీ అవసరం లేని personal information share చేయకండి."
+            : currentLang==="hi"
+            ? "इस policy में पहचाने गए privacy risks कम हैं। फिर भी unnecessary personal information share न करें।"
+            : "The identified privacy risks are relatively low in this policy. Still, avoid sharing unnecessary personal information.";
 
-        summary =
-            lang === "telugu"
-            ? "Privacy policy లో చాలా important privacy concerns కనిపించాయి. Sensitive personal information share చేసే ముందు చాలా జాగ్రత్తగా ఉండండి."
-            : lang === "hindi"
-            ? "Privacy policy में कई महत्वपूर्ण privacy concerns मिले। Sensitive personal information share करने से पहले बहुत सावधान रहें।"
-            : "Several important privacy concerns were found. Be very careful before sharing sensitive personal information.";
     }
 
 
-    /* SHOW RESULT */
+    document.getElementById("overallTitle")
+    .innerText=title;
 
-    const list =
-        document.getElementById("concernList");
+    document.getElementById("overallText")
+    .innerText=description;
 
-    list.innerHTML = "";
+    document.getElementById("analysisResults")
+    .style.display="block";
+}
 
-    if(concerns.length === 0){
 
-        concerns.push(
-            "No major privacy keywords were identified in the provided text."
+/* =========================
+   SIMPLE ENGLISH
+========================= */
+
+function simplifyPolicy(){
+
+    const original=
+        document.getElementById("policyText")
+        .value.trim();
+
+    if(!original){
+
+        alert(
+            currentLang==="te"
+            ? "ముందుగా privacy policy paste చేయండి."
+            : currentLang==="hi"
+            ? "पहले privacy policy paste करें।"
+            : "Please paste a privacy policy first."
+        );
+
+        return;
+    }
+
+    const text=original.toLowerCase();
+
+    let points=[];
+
+
+    if(contains(text,["personal data","personal information"])){
+
+        points.push(
+            currentLang==="te"
+            ? "ఈ service మీ వ్యక్తిగత సమాచారాన్ని సేకరించవచ్చు."
+            : currentLang==="hi"
+            ? "यह service आपकी व्यक्तिगत जानकारी इकट्ठा कर सकती है।"
+            : "This service may collect your personal information."
         );
 
     }
 
-    concerns.forEach(item=>{
 
-        const li =
-            document.createElement("li");
+    if(contains(text,["location","gps","geolocation"])){
 
-        li.innerText = "• " + item;
+        points.push(
+            currentLang==="te"
+            ? "మీ ప్రదేశ సమాచారం సేకరించబడవచ్చు."
+            : currentLang==="hi"
+            ? "आपकी स्थान की जानकारी collect की जा सकती है।"
+            : "Your location information may be collected."
+        );
 
-        list.appendChild(li);
-
-    });
+    }
 
 
-    document.getElementById("summary")
-    .innerText = summary;
+    if(contains(text,["camera","photos"])){
 
-    document.getElementById("result")
-    .style.display = "block";
+        points.push(
+            currentLang==="te"
+            ? "కెమెరా లేదా ఫోటోలకు సంబంధించిన access ఉండవచ్చు."
+            : currentLang==="hi"
+            ? "Camera या photos से जुड़ा access हो सकता है।"
+            : "The service may have access to camera or photo-related information."
+        );
 
+    }
+
+
+    if(contains(text,["microphone","audio"])){
+
+        points.push(
+            currentLang==="te"
+            ? "మైక్రోఫోన్ లేదా audio information ఉపయోగించబడవచ్చు."
+            : currentLang==="hi"
+            ? "Microphone या audio information का उपयोग हो सकता है।"
+            : "Microphone or audio information may be used."
+        );
+
+    }
+
+
+    if(contains(text,["third party","third-party","partners"])){
+
+        points.push(
+            currentLang==="te"
+            ? "కొంత information ఇతర సంస్థలతో share చేయబడవచ్చు."
+            : currentLang==="hi"
+            ? "कुछ information अन्य कंपनियों के साथ share की जा सकती है।"
+            : "Some information may be shared with other companies."
+        );
+
+    }
+
+
+    if(contains(text,["cookies","tracking","pixels"])){
+
+        points.push(
+            currentLang==="te"
+            ? "Cookies లేదా tracking technologies మీ activity ని track చేయవచ్చు."
+            : currentLang==="hi"
+            ? "Cookies या tracking technologies आपकी activity को track कर सकती हैं।"
+            : "Cookies or tracking technologies may be used to track your activity."
+        );
+
+    }
+
+
+    if(contains(text,["advertising","advertisements","ads"])){
+
+        points.push(
+            currentLang==="te"
+            ? "మీ information advertising కోసం ఉపయోగించబడవచ్చు."
+            : currentLang==="hi"
+            ? "आपकी information advertising के लिए इस्तेमाल हो सकती है।"
+            : "Your information may be used for advertising."
+        );
+
+    }
+
+
+    if(contains(text,["retain","retention","stored"])){
+
+        points.push(
+            currentLang==="te"
+            ? "మీ information కొంతకాలం store చేయబడవచ్చు."
+            : currentLang==="hi"
+            ? "आपकी information कुछ समय तक store की जा सकती है।"
+            : "Your information may be stored for some time."
+        );
+
+    }
+
+
+    if(points.length===0){
+
+        points.push(
+            currentLang==="te"
+            ? "ఈ policy నుంచి ముఖ్యమైన privacy information గుర్తించడానికి మరింత వివరాలు అవసరం."
+            : currentLang==="hi"
+            ? "इस policy से महत्वपूर्ण privacy information पहचानने के लिए अधिक details चाहिए।"
+            : "More details are needed to identify important privacy information from this policy."
+        );
+
+    }
+
+
+    document.getElementById("simpleText")
+    .innerText=points.map(x=>"• "+x).join("\n\n");
+
+    document.getElementById("simpleResult")
+    .style.display="block";
 }
 
 
-/* COMPARE */
+/* =========================
+   COMPARE
+========================= */
 
-function getPrivacyScore(text){
+function scorePolicy(text){
 
-    text = text.toLowerCase();
+    text=text.toLowerCase();
 
-    let score = 0;
+    let score=0;
 
-    const factors = [
+    Object.values(riskRules)
+    .forEach(rule=>{
 
-        "personal data",
-        "personal information",
-        "location",
-        "camera",
-        "microphone",
-        "third party",
-        "third-party",
-        "advertising",
-        "tracking",
-        "cookies",
-        "retain",
-        "stored"
+        if(contains(text,rule.high))
+            score+=3;
 
-    ];
-
-    factors.forEach(factor=>{
-
-        if(text.includes(factor)){
-            score++;
-        }
+        else if(contains(text,rule.medium))
+            score+=2;
 
     });
 
@@ -1115,122 +2114,206 @@ function getPrivacyScore(text){
 }
 
 
-function comparePolicies(){
+function compareApps(){
 
-    const name1 =
+    const name1=
         document.getElementById("app1Name")
-        .value.trim() || "App 1";
+        .value.trim() ||
+        (currentLang==="te" ? "యాప్ 1" :
+         currentLang==="hi" ? "ऐप 1" : "App 1");
 
-    const name2 =
+    const name2=
         document.getElementById("app2Name")
-        .value.trim() || "App 2";
+        .value.trim() ||
+        (currentLang==="te" ? "యాప్ 2" :
+         currentLang==="hi" ? "ऐप 2" : "App 2");
 
-    const policy1 =
+    const policy1=
         document.getElementById("app1Policy")
-        .value;
+        .value.trim();
 
-    const policy2 =
+    const policy2=
         document.getElementById("app2Policy")
-        .value;
+        .value.trim();
 
 
-    if(
-        policy1.trim() === "" ||
-        policy2.trim() === ""
-    ){
+    if(!policy1 || !policy2){
 
         alert(
-            "Please enter both privacy policies."
+            currentLang==="te"
+            ? "రెండు apps privacy policies ఇవ్వండి."
+            : currentLang==="hi"
+            ? "दोनों apps की privacy policies दें।"
+            : "Please provide both privacy policies."
         );
 
         return;
     }
 
 
-    const score1 =
-        getPrivacyScore(policy1);
+    const score1=scorePolicy(policy1);
+    const score2=scorePolicy(policy2);
 
-    const score2 =
-        getPrivacyScore(policy2);
+    let html="";
 
 
-    let result = "";
+    if(score1<score2){
 
-    if(score1 < score2){
+        html=`
+        <h3>
+        🔐 ${currentLang==="te" ? "గోప్యతా పోలిక" :
+        currentLang==="hi" ? "प्राइवेसी तुलना" :
+        "Privacy Comparison"}
+        </h3>
 
-        result = `
-            <h3>🔐 Privacy Comparison</h3>
-            <br>
-            <p><strong>${name1}</strong> has fewer identified privacy concerns based on the provided policies.</p>
-            <br>
-            <p>• ${name1}: ${score1} identified factors</p>
-            <p>• ${name2}: ${score2} identified factors</p>
-            <br>
-            <p><strong>Why?</strong> Fewer of the checked privacy-related factors were found in ${name1}'s provided policy.</p>
+        <br>
+
+        <p>
+        <strong>${name1}</strong>
+        ${currentLang==="te"
+        ? "లో గుర్తించిన privacy factors తక్కువగా ఉన్నాయి."
+        : currentLang==="hi"
+        ? "में पहचाने गए privacy factors कम हैं।"
+        : "has fewer identified privacy factors."}
+        </p>
+
+        <br>
+
+        <p>${name1}: ${score1}</p>
+        <p>${name2}: ${score2}</p>
+
+        <br>
+
+        <p>
+        <strong>
+        ${currentLang==="te" ? "సిఫార్సు:" :
+        currentLang==="hi" ? "सुझाव:" :
+        "Recommendation:"}
+        </strong>
+
+        ${currentLang==="te"
+        ? "ఇచ్చిన policies ఆధారంగా " + name1 + " లో గుర్తించిన privacy factors తక్కువగా ఉన్నాయి."
+        : currentLang==="hi"
+        ? "दी गई policies के आधार पर " + name1 + " में पहचाने गए privacy factors कम हैं।"
+        : "Based on the provided policies, " + name1 + " has fewer identified privacy factors."}
+        </p>
         `;
 
     }
 
-    else if(score2 < score1){
+    else if(score2<score1){
 
-        result = `
-            <h3>🔐 Privacy Comparison</h3>
-            <br>
-            <p><strong>${name2}</strong> has fewer identified privacy concerns based on the provided policies.</p>
-            <br>
-            <p>• ${name1}: ${score1} identified factors</p>
-            <p>• ${name2}: ${score2} identified factors</p>
-            <br>
-            <p><strong>Why?</strong> Fewer of the checked privacy-related factors were found in ${name2}'s provided policy.</p>
+        html=`
+        <h3>
+        🔐 ${currentLang==="te" ? "గోప్యతా పోలిక" :
+        currentLang==="hi" ? "प्राइवेसी तुलना" :
+        "Privacy Comparison"}
+        </h3>
+
+        <br>
+
+        <p>
+        <strong>${name2}</strong>
+        ${currentLang==="te"
+        ? "లో గుర్తించిన privacy factors తక్కువగా ఉన్నాయి."
+        : currentLang==="hi"
+        ? "में पहचाने गए privacy factors कम हैं।"
+        : "has fewer identified privacy factors."}
+        </p>
+
+        <br>
+
+        <p>${name1}: ${score1}</p>
+        <p>${name2}: ${score2}</p>
+
+        <br>
+
+        <p>
+        <strong>
+        ${currentLang==="te" ? "సిఫార్సు:" :
+        currentLang==="hi" ? "सुझाव:" :
+        "Recommendation:"}
+        </strong>
+
+        ${currentLang==="te"
+        ? "ఇచ్చిన policies ఆధారంగా " + name2 + " లో గుర్తించిన privacy factors తక్కువగా ఉన్నాయి."
+        : currentLang==="hi"
+        ? "दी गई policies के आधार पर " + name2 + " में पहचाने गए privacy factors कम हैं।"
+        : "Based on the provided policies, " + name2 + " has fewer identified privacy factors."}
+        </p>
         `;
 
     }
 
     else{
 
-        result = `
-            <h3>🔐 Privacy Comparison</h3>
-            <br>
-            <p>Both policies have the same number of identified privacy factors.</p>
-            <br>
-            <p>• ${name1}: ${score1}</p>
-            <p>• ${name2}: ${score2}</p>
-            <br>
-            <p>Review the individual privacy factors before making a decision.</p>
+        html=`
+        <h3>🔐 ${currentLang==="te"
+        ? "గోప్యతా పోలిక"
+        : currentLang==="hi"
+        ? "प्राइवेसी तुलना"
+        : "Privacy Comparison"}</h3>
+
+        <br>
+
+        <p>
+        ${currentLang==="te"
+        ? "రెండు policies లో గుర్తించిన privacy factors సమానంగా ఉన్నాయి."
+        : currentLang==="hi"
+        ? "दोनों policies में पहचाने गए privacy factors समान हैं।"
+        : "Both policies have the same number of identified privacy factors."}
+        </p>
+
+        <br>
+
+        <p>${name1}: ${score1}</p>
+        <p>${name2}: ${score2}</p>
+
+        <br>
+
+        <p>
+        ${currentLang==="te"
+        ? "ప్రతి privacy factor ని విడిగా పరిశీలించండి."
+        : currentLang==="hi"
+        ? "हर privacy factor को अलग से देखें।"
+        : "Review each privacy factor separately."}
+        </p>
         `;
 
     }
 
 
-    const box =
+    const result=
         document.getElementById("compareResult");
 
-    box.innerHTML = result;
+    result.innerHTML=html;
 
-    box.style.display = "block";
+    result.style.display="block";
 }
 
 
-/* PDF / TEXT FILE */
+/* =========================
+   TXT FILE
+========================= */
 
-document.getElementById("pdfFile")
-.addEventListener("change", function(){
+document
+.getElementById("pdfFile")
+.addEventListener("change",function(){
 
-    const file = this.files[0];
+    const file=this.files[0];
 
-    if(!file){
+    if(!file)
         return;
-    }
 
-    if(file.type === "text/plain"){
+    if(file.type==="text/plain"){
 
-        const reader =
-            new FileReader();
+        const reader=new FileReader();
 
-        reader.onload = function(e){
+        reader.onload=function(e){
 
-            document.getElementById("policyText")
-            .value = e.target.result;
+            document
+            .getElementById("analysisPolicy")
+            .value=e.target.result;
 
         };
 
@@ -1238,17 +2321,24 @@ document.getElementById("pdfFile")
 
     }
 
-    else if(file.type === "application/pdf"){
+    else{
 
         alert(
-            "PDF selected. PDF text extraction will be added with the PDF reader module in the next version."
-            
+            currentLang==="te"
+            ? "PDF select చేయబడింది. PDF text extraction కోసం PDF reader/backend add చేయాలి."
+            : currentLang==="hi"
+            ? "PDF select की गई है। PDF text extraction के लिए PDF reader/backend जोड़ना होगा।"
+            : "PDF selected. A PDF reader/backend is required for full PDF text extraction."
         );
 
     }
 
 });
 
+
+/* DEFAULT LANGUAGE */
+
+changeLanguage();
 
 </script>
 
